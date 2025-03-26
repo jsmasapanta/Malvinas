@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cuestionario Guerra de las Malvinas</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h2 { color: darkred; }
+    .pregunta { margin-bottom: 25px; border-bottom: 1px solid #ccc; padding-bottom: 10px; }
+    .respuesta { width: 100%; padding: 5px; margin-top: 5px; }
+    .correcto { color: green; font-weight: bold; margin-top: 5px; }
+    .incorrecto { color: red; font-weight: bold; margin-top: 5px; }
+    button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h2>Cuestionario: Guerra de las Malvinas</h2>
+  <form id="cuestionario"></form>
+
+  <script>
+    const preguntas = [
+      ["¿Qué países se enfrentaron en la Guerra de las Malvinas?", "Argentina y Gran Bretaña"],
+      ["¿Quién era el presidente de Argentina durante la guerra?", "General Leopoldo Fortunato Galtieri"],
+      ["¿Quién era la Primera Ministra del Reino Unido durante el conflicto?", "Margaret Thatcher"],
+      ["¿Cuáles fueron las dos batallas que confirmaron la guerra?", "La reconquista y La defensa"],
+      ["¿Cuál fue el principal error del presidente argentino durante el conflicto?", "Dirigir políticamente y militarmente la guerra"],
+      ["¿Qué operación realizaron las fuerzas argentinas el 2 de abril de 1982?", "La \"Operación Azul\" o también llamada \"Operación Rosario\""],
+      ["¿Qué ocurrió el 25 de abril de 1982 relacionado con las Islas Georgias?", "Las fuerzas británicas recuperaron las Islas Georgias"],
+      ["¿Qué evento marca el inicio oficial de la guerra?", "El 26 de marzo de 1982"],
+      ["¿Cuándo finalizó la Guerra de las Malvinas?", "El 14 de junio de 1982"],
+      ["¿Qué porcentaje de las operaciones fueron nocturnas?", "90 %"],
+      ["¿Cuántos días duró la guerra?", "74 días"],
+      ["¿Qué crucero argentino fue hundido por un submarino británico?", "El crucero ARA General Belgrano"],
+      ["Operación llevada acabo en la Fase 2", "Operación SUTTON"],
+      ["¿Qué tipo de operación fue la 'Operación incruenta'?", "Una operación sin enfrentamiento directo o con mínima resistencia"],
+      ["¿Qué permitió el éxito de la acción ofensiva argentina según el resumen?", "Que fue simultánea y sorpresiva"],
+      ["¿Cómo fue tratado el conflicto en relación con la población civil?", "Hubo medidas específicas sobre el trato a la población (tema importante en la doctrina militar)"],
+      ["¿Qué tipo de ataque caracterizó la guerra según el resumen?", "Ataque simultáneo"],
+      ["¿Cuáles fueron los 3 momentos de la operación 'SUTTON'?", "Batalla naval, Batalla aérea, Batalla terrestre"],
+      ["¿Cuales son factores denominantes durante la guerra?", "Operacion incruenta, Accion ofensiva simultánea y sorpresiva que permitió el éxito, Trato a la población y Ataque simultáneo"]
+    ];
+
+
+    
+
+
+    const form = document.getElementById("cuestionario");
+    preguntas.forEach(([pregunta], i) => {
+      form.innerHTML += `
+        <div class="pregunta">
+          <label><strong>${i + 1}. ${pregunta}</strong></label><br>
+          <input type="text" class="respuesta" id="respuesta${i}">
+          <button type="button" onclick="verificarRespuesta(${i})">Verificar</button>
+          <div id="feedback${i}"></div>
+        </div>
+      `;
+    });
+
+    function verificarRespuesta(index) {
+      const userInput = document.getElementById(`respuesta${index}`).value.trim();
+      const feedback = document.getElementById(`feedback${index}`);
+      const respuestaCorrecta = preguntas[index][1];
+
+      if (userInput === respuestaCorrecta) {
+        feedback.innerHTML = "✅ <span class='correcto'>Correcto</span>";
+      } else {
+        feedback.innerHTML = `❌ <span class='incorrecto'>Incorrecto. Respuesta esperada: ${respuestaCorrecta}</span>`;
+      }
+    }
+  </script>
+</body>
+</html>
