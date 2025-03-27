@@ -18,50 +18,67 @@
   <form id="cuestionario"></form>
 
   <script>
-    const preguntas = [
-      ["¿Qué países se enfrentaron en la Guerra de las Malvinas?", "Argentina y Gran Bretaña"],
-      ["¿Quién era el presidente de Argentina durante la guerra?", "General Leopoldo Fortunato Galtieri"],
-      ["¿Quién era la Primera Ministra del Reino Unido durante el conflicto?", "Margaret Thatcher"],
-      ["¿Cuáles fueron las dos batallas que confirmaron la guerra?", "La reconquista y La defensa"],
-      ["¿Cuál fue el principal error del presidente argentino durante el conflicto?", "Dirigir políticamente y militarmente la guerra"],
-      ["¿Qué operación realizaron las fuerzas argentinas el 2 de abril de 1982?", "La \"Operación Azul\" o también llamada \"Operación Rosario\""],
-      ["¿Qué ocurrió el 25 de abril de 1982 relacionado con las Islas Georgias?", "Las fuerzas británicas recuperaron las Islas Georgias"],
-      ["¿Qué evento marca el inicio oficial de la guerra?", "El 26 de marzo de 1982"],
-      ["¿Cuándo finalizó la Guerra de las Malvinas?", "El 14 de junio de 1982"],
-      ["¿Qué porcentaje de las operaciones fueron nocturnas?", "90 %"],
-      ["¿Cuántos días duró la guerra?", "74 días"],
-      ["¿Qué crucero argentino fue hundido por un submarino británico?", "El crucero ARA General Belgrano"],
-      ["Operación llevada acabo en la Fase 2", "Operación SUTTON"],
-      ["¿Qué tipo de operación fue la 'Operación incruenta'?", "Una operación sin enfrentamiento directo o con mínima resistencia"],
-      ["¿Qué permitió el éxito de la acción ofensiva argentina según el resumen?", "Que fue simultánea y sorpresiva"],
-      ["¿Cómo fue tratado el conflicto en relación con la población civil?", "Hubo medidas específicas sobre el trato a la población (tema importante en la doctrina militar)"],
-      ["¿Qué tipo de ataque caracterizó la guerra según el resumen?", "Ataque simultáneo"],
-      ["¿Cuáles fueron los 3 momentos de la operación 'SUTTON'?", "Batalla naval, Batalla aérea, Batalla terrestre"],
-      ["¿Cuales son factores denominantes durante la guerra?", "Operacion incruenta, Accion ofensiva simultánea y sorpresiva que permitió el éxito, Trato a la población y Ataque simultáneo"]
-    ];
-
+const preguntas = [
+  ["¿Qué países se enfrentaron en la Guerra de las Malvinas?", "Argentina y Gran Bretaña", ["Argentina y Chile", "Argentina y Gran Bretaña", "Brasil y Reino Unido", "EE.UU. y España"]],
+  ["¿Quién era el presidente de Argentina durante la guerra?", "General Leopoldo Fortunato Galtieri", ["Juan Domingo Perón", "Raúl Alfonsín", "General Leopoldo Fortunato Galtieri", "Carlos Saúl Menem"]],
+  ["¿Quién era la Primera Ministra del Reino Unido durante el conflicto?", "Margaret Thatcher", ["Margaret Thatcher", "Theresa May", "Isabel II", "Winston Churchill"]],
+  ["¿Cuáles fueron las dos batallas que confirmaron la guerra?", "La reconquista y La defensa", ["La reconquista y La defensa", "San Carlos y Goose Green", "Monte Longdon y Puerto Argentino", "Belgrano y Sheffield"]],
+  ["¿Cuál fue el principal error del presidente argentino durante el conflicto?", "Dirigir políticamente y militarmente la guerra", ["No pedir ayuda a EE.UU.", "Dirigir políticamente y militarmente la guerra", "Retirarse tempranamente", "Ignorar a la ONU"]],
+  ["¿Qué operación realizaron las fuerzas argentinas el 2 de abril de 1982?", "La Operación Azul o también llamada Operación Rosario", ["Operación Corporate", "La Operación Azul o también llamada Operación Rosario", "Operación Tormenta del Desierto", "Operación Cóndor"]],
+  ["¿Qué ocurrió el 25 de abril de 1982 relacionado con las Islas Georgias?", "Las fuerzas británicas recuperaron las Islas Georgias", ["Argentina las ocupó", "Las fuerzas británicas recuperaron las Islas Georgias", "Se declaró zona neutral", "EE.UU. intervino"]],
+  ["¿Qué evento marca el inicio oficial de la guerra?", "El 26 de marzo de 1982", ["2 de abril de 1982", "El 26 de marzo de 1982", "1 de mayo de 1982", "14 de junio de 1982"]],
+  ["¿Cuándo finalizó la Guerra de las Malvinas?", "El 14 de junio de 1982", ["2 de abril de 1982", "25 de mayo de 1982", "El 14 de junio de 1982", "20 de julio de 1982"]],
+  ["¿Qué porcentaje de las operaciones fueron nocturnas?", "90 %", ["30%", "50%", "75%", "90%"]],
+  ["¿Cuántos días duró la guerra?", "74 días", ["42 días", "74 días", "100 días", "128 días"]],
+  ["¿Qué crucero argentino fue hundido por un submarino británico?", "El crucero ARA General Belgrano", ["ARA Santísima Trinidad", "El crucero ARA General Belgrano", "ARA Hércules", "ARA Veinticinco de Mayo"]],
+  ["Operación llevada a cabo en la Fase 2", "Operación SUTTON", ["Operación Rosario", "Operación Corporate", "Operación SUTTON", "Operación Algeciras"]],
+  ["¿Qué tipo de operación fue la 'Operación incruenta'?", "Una operación sin enfrentamiento directo o con mínima resistencia", ["Ofensiva masiva", "Una operación sin enfrentamiento directo o con mínima resistencia", "Retirada estratégica", "Bloqueo naval"]],
+  ["¿Qué permitió el éxito de la acción ofensiva argentina según el resumen?", "Que fue simultánea y sorpresiva", ["Superioridad numérica", "Ayuda extranjera", "Que fue simultánea y sorpresiva", "Error británico"]],
+  ["¿Cómo fue tratado el conflicto en relación con la población civil?", "Hubo medidas específicas sobre el trato a la población (tema importante en la doctrina militar)", ["Fueron evacuados", "Hubo medidas específicas sobre el trato a la población (tema importante en la doctrina militar)", "No hubo intervención", "Fueron ignorados"]],
+  ["¿Qué tipo de ataque caracterizó la guerra según el resumen?", "Ataque simultáneo", ["Ataque aéreo", "Ataque naval", "Ataque simultáneo", "Guerra de trincheras"]],
+  ["¿Cuáles fueron los 3 momentos de la operación 'SUTTON'?", "Batalla naval, Batalla aérea, Batalla terrestre", ["Batalla naval, Batalla aérea, Batalla terrestre", "Diplomacia, Combate, Retirada", "Desembarco, Ocupación, Rendición", "Espionaje, Sabotaje, Ataque"]],
+  ["¿Cuáles son factores denominantes durante la guerra?", "Operación incruenta, Acción ofensiva simultánea y sorpresiva que permitió el éxito, Trato a la población y Ataque simultáneo", ["Clima, Terreno, Tecnología", "Operación incruenta, Acción ofensiva simultánea y sorpresiva que permitió el éxito, Trato a la población y Ataque simultáneo", "Apoyo internacional, Número de tropas", "Inteligencia, Logística, Tiempo"]]
+];
 
     
-
+    // Función para aleatorizar las opciones
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
 
     const form = document.getElementById("cuestionario");
-    preguntas.forEach(([pregunta], i) => {
+    preguntas.forEach(([pregunta, respuestaCorrecta, opciones], i) => {
+      // Aleatorizar las opciones
+      const opcionesAleatorias = shuffle([...opciones]);
+
       form.innerHTML += `
         <div class="pregunta">
           <label><strong>${i + 1}. ${pregunta}</strong></label><br>
-          <input type="text" class="respuesta" id="respuesta${i}">
-          <button type="button" onclick="verificarRespuesta(${i})">Verificar</button>
+          ${opcionesAleatorias
+            .map(
+              (opcion) =>
+                `<label><input type="radio" name="respuesta${i}" value="${opcion}"> ${opcion}</label><br>`
+            )
+            .join("")}
+          <button type="button" onclick="verificarRespuesta(${i}, '${respuestaCorrecta}')">Verificar</button>
           <div id="feedback${i}"></div>
         </div>
       `;
     });
 
-    function verificarRespuesta(index) {
-      const userInput = document.getElementById(`respuesta${index}`).value.trim();
-      const feedback = document.getElementById(`feedback${index}`);
-      const respuestaCorrecta = preguntas[index][1];
+    function verificarRespuesta(index, respuestaCorrecta) {
+      const opciones = document.getElementsByName(`respuesta${index}`);
+      let seleccion = "";
+      opciones.forEach((opcion) => {
+        if (opcion.checked) seleccion = opcion.value;
+      });
 
-      if (userInput === respuestaCorrecta) {
+      const feedback = document.getElementById(`feedback${index}`);
+      if (seleccion === respuestaCorrecta) {
         feedback.innerHTML = "✅ <span class='correcto'>Correcto</span>";
       } else {
         feedback.innerHTML = `❌ <span class='incorrecto'>Incorrecto. Respuesta esperada: ${respuestaCorrecta}</span>`;
